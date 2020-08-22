@@ -1,0 +1,115 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package linkedimplementation;
+class Node{
+int data;
+Node next;}
+class linkedList{
+          Node head;
+void insertAtend(int m){
+Node val=new Node();
+val.data=m;
+val.next=null;
+if(head==null){head=val;}
+else{Node n=head;
+while(n.next!=null){
+n=n.next;}
+n.next=val;
+}}
+void insertAtStart( int m){
+Node nu=new Node();
+nu.data=m;
+nu.next=null;
+nu.next=head;
+head=nu;}
+ void insertAt(int index,int data){
+     Node node=new Node();
+     node.data=data;
+     node.next=null;
+ if(index==0){insertAtStart(data);}else{
+ Node n=head;
+ for(int i=0;i<index-1;i++){
+ n=n.next;}
+ Node n1=null;
+ node.next=n.next;
+ n.next=node;}}
+void InsertAfterData(int data1, int data3){
+Node c=new Node();
+c.data=data3;
+c.next=null;Node loc=null;
+Node n=head;
+while(n.next!=null){
+if(n.data==data1){
+loc=n.next;break;}
+n=n.next;}
+Node n1=null;
+//n1=loc;
+c.next=loc;
+n.next=c;
+
+
+}
+void Delete(int index){
+ Node n=head;if(index==0){head=head.next;}else{
+ for(int i=0;i<index;i++){
+ n=n.next;}
+ Node n1=n.next;
+ Node b=head;
+ for(int i=0;i<index-1;i++){
+ b=b.next;}
+ b.next=n1;}
+
+}void DeleteData(int m){
+Node  n=head;Node loc=null;Node n1=null;int counter=0;
+if(head.data==m){head=head.next;}else{
+while(n.next!=null){counter=counter+1;
+if(n.data==m){loc=n.next;break;}
+n=n.next;}
+ n1=loc;Node n2=head;
+for(int i=1;i<counter;i++){n2=n2.next;
+
+}n2.next=n1;
+n=null;}}
+void show(){
+Node n=head;
+while(n!=null){
+    System.out.println(n.data);
+n=n.next;}}
+void size(){//this code not responding
+Node n=head;
+int count=0;
+if(head==null){count=0;}else{
+while(n.next!=null){count=count+1;}
+count=count+1;}
+    System.out.println(count);}
+}
+/**
+ *
+ * @author HP
+ */
+public class LinkedImplementation {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    linkedList list=new linkedList();
+        
+    
+     list.insertAtend(5);
+     list.insertAtend(6);list.insertAtend(8);list.insertAtend(9);
+     list.insertAtStart(4);
+     list.insertAt(2, 19);
+     list.InsertAfterData(6,7);  
+     list.insertAtend(8);
+     list.show();
+     list.size();
+       
+    System.out.println(list);
+    }
+    
+}
